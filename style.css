@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+:root{--mint:#b7f0c4;--gold:#ffd36a;--dark:#102b27}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#102b27;font-family:'Cairo',system-ui,sans-serif;touch-action:none}
+#game-shell{position:relative;width:100%;height:100dvh;overflow:hidden;background:#174a3b}
+canvas{display:block;width:100%;height:100%;touch-action:none}
+.topbar{position:absolute;top:0;left:0;right:0;padding:calc(12px + env(safe-area-inset-top)) 14px 10px;display:flex;align-items:center;justify-content:space-between;color:#fff;pointer-events:none}
+.brand{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:900;letter-spacing:2px;text-shadow:0 2px 8px #123}
+.brand-mark{width:29px;height:29px;border-radius:10px;display:grid;place-items:center;background:#f5c85e;color:#4b3a18;font-size:19px}
+.stats{display:flex;gap:7px;align-items:center}
+.stat,.icon-btn{background:#102b27c9;border:1px solid #ffffff30;border-radius:12px;padding:7px 10px;color:#fff;display:flex;gap:6px;align-items:center;font:700 13px 'Cairo',sans-serif;backdrop-filter:blur(8px)}
+.icon-btn{pointer-events:auto;font-size:18px;line-height:1;min-width:38px;justify-content:center}
+.mission{position:absolute;top:calc(58px + env(safe-area-inset-top));left:14px;right:14px;max-width:330px;margin:auto;background:#102b27d9;border:1px solid #ffffff25;border-radius:13px;padding:8px 12px;color:white;backdrop-filter:blur(8px);pointer-events:none}
+.mission-label{font-size:10px;color:var(--gold);font-weight:800}
+#missionText{font-size:12px;font-weight:700;margin:1px 0 6px}
+.progress{height:5px;background:#ffffff28;border-radius:8px;overflow:hidden}
+.progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,#f7b84b,#ffe08a);border-radius:8px;transition:width .2s}
+.toast{position:absolute;top:calc(133px + env(safe-area-inset-top));left:50%;transform:translate(-50%,-8px);background:#fff;color:#17392f;padding:8px 15px;border-radius:30px;font-size:12px;font-weight:800;opacity:0;transition:.25s;pointer-events:none;white-space:nowrap;box-shadow:0 5px 20px #0003}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.overlay{position:absolute;inset:0;display:grid;place-items:center;padding:22px;background:linear-gradient(180deg,#09231dcc,#102b27e8);backdrop-filter:blur(7px);z-index:5}
+.hidden{display:none!important}
+.panel{width:min(100%,360px);text-align:center;color:#fff;padding:26px 23px 22px;border:1px solid #ffffff25;border-radius:27px;background:linear-gradient(145deg,#245b4aee,#102b27f5);box-shadow:0 25px 80px #0007}
+.panel.compact{padding:27px 23px}
+.game-emblem{font-size:52px;filter:drop-shadow(0 8px 10px #0004);margin-bottom:2px}
+.eyebrow{color:var(--gold);font-size:11px;font-weight:900;letter-spacing:2px;margin:0 0 4px}
+h1{font-size:43px;line-height:1.13;margin:4px 0 12px;font-weight:900}
+h1 span{color:var(--mint)}
+h2{font-size:27px;margin:4px 0 10px}
+.intro{font-size:13px;line-height:1.9;color:#d9eee3;margin:0 0 20px}
+button{font-family:inherit;cursor:pointer}
+.primary,.secondary{width:100%;border:0;border-radius:15px;padding:13px 16px;font-size:14px;font-weight:900}
+.primary{background:linear-gradient(135deg,#ffe08a,#f3b94d);color:#3d321c;box-shadow:0 7px 0 #b67b2d;margin-top:4px}
+.primary:active{transform:translateY(3px);box-shadow:0 4px 0 #b67b2d}
+.primary span{margin-right:8px}
+.secondary{background:#ffffff17;color:#fff;margin-top:10px;border:1px solid #ffffff30}
+.panel small{display:block;color:#a9c8ba;font-size:10px;margin-top:17px}
+.controls-hint{position:absolute;bottom:calc(20px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);white-space:nowrap;color:#fff;background:#102b27a8;border:1px solid #ffffff22;border-radius:20px;padding:5px 12px;font-size:10px;pointer-events:none}
+.joystick{position:absolute;bottom:calc(54px + env(safe-area-inset-bottom));left:20px;width:118px;height:118px;display:grid;place-items:center;touch-action:none}
+.joy-ring{width:108px;height:108px;border-radius:50%;background:#d6f6df24;border:2px solid #ffffff50;box-shadow:inset 0 0 20px #ffffff12;display:grid;place-items:center;backdrop-filter:blur(3px)}
+.joy-knob{width:46px;height:46px;border-radius:50%;background:linear-gradient(145deg,#e7f9d8,#94d7aa);border:2px solid #fff9;box-shadow:0 5px 14px #0019}
+.action-btn{position:absolute;bottom:calc(70px + env(safe-area-inset-bottom));right:24px;width:67px;height:67px;border-radius:50%;border:2px solid #fff9;background:linear-gradient(145deg,#ffe28b,#e9a93e);color:#4c3917;font-size:25px;font-weight:900;box-shadow:0 7px 0 #9a6929,0 10px 22px #0004;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}
+.action-btn small{font-size:9px}
+@media(min-width:700px){.joystick{left:calc(50% - 330px)}.action-btn{right:calc(50% - 330px)}.mission{top:85px}.controls-hint{bottom:22px}}
